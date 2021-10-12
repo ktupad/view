@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="Description" content="Ktupad MVC Framework by wawan sismadi">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+
+<title>Ktupad MVC</title>
+
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="stylesheet" type="text/css" href="ktupad.css">
+
+</head>
+<body>
+<temp>
+
+<div id="modal" class="depan hide">
+<div id="modal-full" class="modal">
+<button class="btn-close ico-close" onclick="k.close('modal')"></button>
+<div id="modal-content" class="row"></div>
+</div>
+</div>
+
+<div id="modal2" class="depan hide"></div>
+
+<div id="printarea" class="cetak hide"></div>
+<div id="depan" class="depan hide" onclick="k.close('depan')"></div>
+<main id="main" class="main">
+
+<div id="atas" class="navbar pDarkColor">
+<ul >
+<li   tabindex="0" class="dropdown-menu" style="float:right">
+<span class="btn-h"  >Dropdown</span>
+<ul  class="dropdown pColor" >
+<li><input id="1ss" type="checkbox" ><label class="btn-h" for="1ss" >Level 1</label>
+<ul>
+<li><input id="2ss" type="checkbox" ><label class="btn-h" for="2ss" >Level 2</label>
+</li></ul>
+</li>
+</ul>
+</li>
+
+
+<li style="float:left" class="accordion-menu" tabindex="0" >
+<i class="btn-form svgIco ico-burger" id="btnMenu"></i>
+<ul id="kiri" class="accordion pColor" >
+<li><input type="checkbox" id="1s" > <label class="btn-h" for="1s" >Info</label><ul>
+<li><input type="checkbox" id="2s" > <label class="btn-h" for="2s" >Ktupad-2.0</label></li></ul>
+</li>
+</ul>
+</li>
+
+<li style="float:left" id="li-kiri"   aria-hidden="true"></li>
+<li style="float:right" id="li-kanan"  aria-hidden="true">
+<i class="ico-envelope"></i><span id="badge" class="badge" data-badge="0"></span>
+</li>
+
+
+
+
+</ul>
+</div>
+
+
+
+<div class="row shadow">
+<div id="side" class="l-4 s-12  ">
+  <div id="card" >
+    <div class = "row shadow center artikel" >
+    <div class="pp center" style="background-image: url('me.jpg')"></div>
+    <h2>Ktupad</h2>
+    <span class = "judul kiri">Witing Tresno Jalaran Soko Kulino </span><br>
+    </div>
+  </div>
+
+  <div id="tabs" >
+  <div class="tabs row shadow ">
+  <input type="radio" name="tabs" id="satu" checked="checked" >
+  <label for="satu" class="btn-">Satu</label>
+  <div class="tab">Isi Satu</div>
+  <input type="radio" name="tabs" id="dua" checked="checked" >
+  <label for="dua" class="btn-">Dua</label>
+  <div class="tab">Isi Dua</div>
+  </div>
+  </div>
+
+  <div class="row shadow artikel">
+  <div class="l-4 s-12"><H2>200</H2>Model</div>
+  <div class="l-4 s-12"><H2>200</H2>View</div>
+  <div class="l-4 s-12"><H2>200</H2>Controller</div>
+  </div>
+
+  <div class="row"></div>
+
+
+    <div id="gallery" class="row center">
+    <div class="l-6 s-12 artikel"><img class="img" src="ktupad.svg" alt="ktupad" height=20 width=20></div>
+    <div class="l-6 s-12 artikel"><img class="img" src="ktupad.svg" alt="ktupad" height=20 width=20></div>
+    <div class="l-6 s-12 artikel"><img class="img" src="ktupad.svg" alt="ktupad" height=20 width=20></div>
+    <div class="l-6 s-12 artikel"><img class="img" src="ktupad.svg" alt="ktupad" height=20 width=20></div>
+    </div>
+
+
+        <div id="form" class="row artikel hide">
+        <h2> Form </h2>
+        <form >
+        <div> <label for="namas">User name</label><br/>	<input id="namas" type="text" name="nama" value=""></div>
+        <div> <label for="sandis">Password</label><br/><input id="sandis" type="password" name="sandi" value=""></div>
+
+        <div class="clear">
+        <input id="order1" type="hidden" name="order1" value="ORDER BY">
+        ORDER BY:<select id="fld1" name="sortir" >
+        <option value="id" >ID</option>
+        <option value="nama" >Nama</option>
+        </select>
+        </div>
+        </form>
+
+        <form method=post enctype="multipart/form-data" ><label for="afile">
+        Pilih File CSV:</label><input id="afile" type="file" name="afile" >
+        </form>
+
+        <button id="import" class="btn-form" name=upload >Import</button>
+        <button id="signin" class="btn-form">Sign In</button>
+        </div>
+
+
+ </div>
+
+
+<div id="content" class="l-8 s-12 content">
+
+
+
+  <div class="row shadow artikel">
+  <h2>Artikel</h2>
+  Silahkan diisi
+  </div>
+<div class="row shadow">
+
+  <div id="search" class="show">
+  <div class="search row pColor">
+  <ul>
+  <li class="pTextColor" style="padding: 14px 16px;">Modul</li>
+  <li id="caris" tabindex="0" class="tool" style="float:right" >
+  <i class="ico-tridot dropbtn"></i>
+  <div class="subtool" >
+  <a  href="#" >Filter</a>
+  <a  href="#" >Export</a>
+  <a  href="#" >Import</a>
+  <a  href="#" >Print</a>
+  </div>
+  </li>
+  <li id="SearchTxt" style="float:right" ><label for="InpSearch"><input id="InpSearch" type="text" placeholder="Search..." /></label></li>
+  </ul>
+  </div>
+  </div>
+
+  <div id="table" class="show">
+  <div class="table">
+  <table  >
+  <tr><th class="pColor"><label> <input type="checkbox">ID</label></th><th class="pColor">Nama</th><th class="pColor">Aksi</th></tr>
+  <tr><td><label> <input type="checkbox">1</label></td><td>Chart</td><td><button onclick="k.modal('chart')" class="btn-form">View</button></td></tr>
+  <tr><td><label> <input type="checkbox">2</label></td><td>Form</td><td><button onclick="k.modal('form')" class="btn-form">View</button></tr>
+  <tr><td><label> <input type="checkbox">3</label></td><td>Gallery</td><td><button onclick="k.modal('gallery')" class="btn-form">View</button></tr>
+  <tr><td><label> <input type="checkbox">4</label></td><td>Spinner</td><td><button onclick="k.depan('spinner')" class="btn-form">View</button></tr>
+  <tr><td><label> <input type="checkbox">5</label></td><td>Toast</td><td><button onclick="k.open('toast')" class="btn-form">View</button></tr>
+  <tr><td><label> <input type="checkbox">6</label></td><td>Tabs</td><td><button onclick="k.modal('tabs')" class="btn-form">View</button></tr>
+  </table>
+  </br>
+  </div>
+  </div>
+
+  <div id="pagination" class="show">
+  <div class="pagination">
+  <button id="p" class="btn-form">Prev</button>
+  <button id="n" class="btn-form">Next</button>
+  <span id="s">Page:1/7</span>
+  </div>
+</div>
+
+  <div class="row  pTextColor">
+<div id="chart" class="artikel">
+
+  <div class="l-4 s-12 artikel  ">
+  <div class="chart pie">
+
+  </div>
+  </div>
+
+<div class="l-4 s-12 artikel">
+<div class="chart vertical row pTextColor ">
+<table>
+<tr>
+<td><div class="color1" style="height:100%"> 100 % </div></td>
+<td><div class="color2" style="height:80%"> 80 % </div></td>
+<td><div class="color3" style="height:10%"> 00 % </div></td>
+</tr>
+</table>
+</div>
+</div>
+
+<div class="l-4 s-12 artikel">
+<div class="chart horizontal row pTextColor">
+<table>
+<tr><td><div class="color1" style="width:100%"> 100 % </div></td></tr>
+<tr><td><div class="color2" style="width:80%"> 80 % </div></td></tr>
+<tr><td><div class="color3" style="width:10%"> 00 % </div></td></tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+
+</div>
+
+</div>
+
+<div id="bawah" class="pDarkColor toast hide"></div>
+</main>
+</temp>
+
+<!-- <div id="belakang" class="main"> -->
+<!-- <div id="atas" class="show"></div> -->
+<!-- <div id="kanan" class="hide"></div> -->
+<!-- <div id="bawah" class="hide"></div> -->
+<!-- <div id="kiri" class="hide"></div> -->
+<!-- <div id="content" class="content"></div> -->
+<!-- </div> -->
+
+
+<div id="toast" class="pDarkColor toast hide" onclick="k.close('toast')" >Info</div>
+
+<div id="spinner" class="hide">
+<div class="spinner">
+<div class="cube cube1"></div>
+<div class="cube cube2"></div>
+<div class="cube cube3"></div>
+<div class="cube cube4"></div>
+<div class="cube cube5"></div>
+<div class="cube cube6"></div>
+<div class="cube cube7"></div>
+<div class="cube cube8"></div>
+</div>
+</div>
+
+<div id="float" class="show">
+<div class="btn-float" onclick="k.modal('form')" >
+<i class="ico-plus"></i>
+</div>
+</div>
+
+
+
+<script>
+k={
+close:function(id){
+var z=document.getElementById(id);
+z.className = z.className.replace('show', 'hide');
+},
+open:function (id){
+var z=document.getElementById(id);
+z.className = z.className.replace('hide', 'show');
+},
+depan:function (id){
+var z=document.getElementById('depan');
+z.className = z.className.replace('hide', 'show');
+z.innerHTML=document.getElementById(id).innerHTML;
+},
+modal:function (id){
+var z=document.getElementById('modal');
+z.className = z.className.replace('hide', 'show');
+document.getElementById('modal-content').innerHTML=document.getElementById(id).innerHTML;
+}
+}
+
+</script>
+</body>
+</html>
